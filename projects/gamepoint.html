@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GamePoint — Kent Genovia</title>
+
+<meta name="description" content="GamePoint — A mobile sports community platform built with React Native, Expo, Spring Boot, PostgreSQL, Firebase, and Google Places API.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../styles.css">
+
+</head>
+
+<body>
+
+<header>
+  <nav class="wrap">
+
+    <a class="brand" href="../index.html">
+      Kent Genovia<span class="dot">.</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+
+    <div class="nav-right">
+
+      <a
+        class="icon-btn"
+        href="https://github.com/genoviakent12-rgb/GamePoint"
+        target="_blank"
+        rel="noopener"
+        aria-label="GitHub"
+      >
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.94c.57.1.79-.25.79-.55v-2.14c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.77.11 3.06.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/>
+        </svg>
+      </a>
+
+      <button
+        class="icon-btn"
+        id="theme-toggle"
+        aria-label="Toggle theme"
+        title="Toggle theme"
+      >
+        <svg
+          id="theme-icon"
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+        >
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>
+        </svg>
+      </button>
+
+    </div>
+
+  </nav>
+</header>
+
+
+<main>
+
+  <!-- PROJECT HERO -->
+
+  <section class="project-hero">
+
+    <div class="wrap">
+
+      <a class="back-link" href="../index.html#work">
+        ← Back to projects
+      </a>
+
+      <div class="project-label">
+        Full-stack · Mobile Application
+      </div>
+
+      <h1>GamePoint</h1>
+
+      <p class="project-subtitle">
+        A mobile sports community platform that helps users discover,
+        create, and participate in local sports activities while
+        connecting players with nearby venues and games.
+      </p>
+
+      <div class="project-actions">
+
+        <a
+          class="btn btn-primary"
+          href="https://docs.google.com/document/d/1hWY4cykujLEIEq4gKx8ZRyDWc7g4vQOC3u3OvMgOL5o/edit?usp=sharing"
+          target="_blank"
+          rel="noopener"
+        >
+          View Documentation
+        </a>
+
+        <a
+          class="btn btn-ghost"
+          href="https://github.com/genoviakent12-rgb/GamePoint"
+          target="_blank"
+          rel="noopener"
+        >
+          View on GitHub
+        </a>
+
+        <a
+          class="btn btn-primary"
+          href="https://lnkd.in/p/dj-vr5mc"
+          target="_blank"
+          rel="noopener"
+        >
+          View demo on LinkedIn ↗
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROJECT OVERVIEW -->
+
+  <section class="section">
+
+    <div class="wrap">
+
+      <div class="project-info-grid">
+
+        <div>
+
+          <div class="project-number">
+            01 — Overview
+          </div>
+
+          <h2>Connecting players through local sports.</h2>
+
+          <p>
+            Finding people to play sports with can be difficult due to
+            scheduling conflicts, limited players, or difficulty
+            discovering suitable locations.
+          </p>
+
+          <p>
+            GamePoint was designed to provide a centralized platform
+            where users can create sporting activities, discover
+            available games, join other players, and find nearby
+            venues.
+          </p>
+
+          <p>
+            The application combines a React Native mobile interface
+            with a Spring Boot REST API backend and PostgreSQL database,
+            creating a full-stack architecture for managing users,
+            games, venues, and player participation.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TECHNOLOGY STACK -->
+
+  <section class="section">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <h2>Technology stack</h2>
+
+        <p>
+          Technologies used to build the mobile application,
+          backend services, database, authentication, and
+          location-based functionality.
+        </p>
+
+      </div>
+
+
+      <div class="tech-grid">
+
+        <div class="tech-item">
+          <strong>React Native</strong>
+          <span>Cross-platform mobile application development</span>
+        </div>
+
+        <div class="tech-item">
+          <strong>Expo</strong>
+          <span>Mobile development environment and tooling</span>
+        </div>
+
+        <div class="tech-item">
+          <strong>JavaScript</strong>
+          <span>Frontend application logic and interactions</span>
+        </div>
+
+        <div class="tech-item">
+          <strong>Expo Router</strong>
+          <span>Application navigation and screen routing</span>
+        </div>
+
+        <div class="tech-item">
+          <strong>Java</strong>
+          <span>Backend programming language</span>
+        </div>
+
+        <div class="tech-item">
+          <strong>Spring Boot</strong>
+          <span>REST API and backend application framework</span>
+        </div>
+
+        <div class="tech-item">
+          <strong>Spring Data JPA</strong>
+          <span>Database access and entity management</span>
+        </div>
+
+        <div class="tech-item">
+          <strong>Hibernate</strong>
+          <span>Object-relational mapping</span>
+        </div>
+
+        <div class="tech-item">
+          <strong>PostgreSQL</strong>
+          <span>Relational database management</span>
+        </div>
+
+        <div class="tech-item">
+          <strong>Firebase / Firestore</strong>
+          <span>Authentication and cloud services</span>
+        </div>
+
+        <div class="tech-item">
+          <strong>Google Places API</strong>
+          <span>Location and sports venue discovery</span>
+        </div>
+
+        <div class="tech-item">
+          <strong>Maven</strong>
+          <span>Backend dependency and project management</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- KEY FEATURES -->
+
+  <section class="section">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <h2>Key features</h2>
+
+        <p>
+          Core functionality designed around discovering games,
+          organizing players, and finding suitable sports venues.
+        </p>
+
+      </div>
+
+
+      <div class="feature-grid">
+
+        <div class="feature">
+
+          <span>01</span>
+
+          <h3>Game Management</h3>
+
+          <p>
+            Users can create sports games with details such as
+            sport category, venue, date, time, difficulty,
+            and maximum player capacity.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <span>02</span>
+
+          <h3>Join Local Games</h3>
+
+          <p>
+            Players can browse available sporting activities
+            and join games hosted by other members of the
+            community.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <span>03</span>
+
+          <h3>Player Availability</h3>
+
+          <p>
+            Games track current players and maximum capacity,
+            helping users understand whether a game still has
+            available spaces.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <span>04</span>
+
+          <h3>Venue Discovery</h3>
+
+          <p>
+            Google Places API integration allows users to search
+            for nearby venues and access information including
+            addresses, ratings, and geographic coordinates.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <span>05</span>
+
+          <h3>Game Details</h3>
+
+          <p>
+            Each game provides important information including
+            sport, venue, date, time, difficulty level, host,
+            and player availability.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <span>06</span>
+
+          <h3>Host Management</h3>
+
+          <p>
+            Users who create games can manage their hosted
+            activities, including cancelling games when
+            necessary.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SYSTEM ARCHITECTURE -->
+
+  <section class="section">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <h2>System architecture</h2>
+
+        <p>
+          GamePoint follows a client-server architecture where
+          the React Native application communicates with the
+          Spring Boot backend through REST APIs.
+        </p>
+
+      </div>
+
+
+      <div class="architecture">
+
+        <div class="architecture-box">
+
+          <strong>React Native</strong>
+
+          <span>
+            Mobile Application
+          </span>
+
+        </div>
+
+
+        <div class="architecture-arrow">
+          ↓
+          <span>REST API</span>
+        </div>
+
+
+        <div class="architecture-box">
+
+          <strong>Spring Boot</strong>
+
+          <span>
+            Backend REST API
+          </span>
+
+        </div>
+
+
+        <div class="architecture-arrow">
+          ↓
+          <span>JPA / Hibernate</span>
+        </div>
+
+
+        <div class="architecture-box">
+
+          <strong>PostgreSQL</strong>
+
+          <span>
+            Relational Database
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- API -->
+
+  <section class="section">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <h2>REST API</h2>
+
+        <p>
+          The backend provides REST endpoints for managing
+          sporting games and player participation.
+        </p>
+
+      </div>
+
+
+      <div class="api-list">
+
+        <div class="api-item">
+          <span class="api-method">GET</span>
+          <code>/api/games</code>
+          <p>Retrieve available games.</p>
+        </div>
+
+        <div class="api-item">
+          <span class="api-method">POST</span>
+          <code>/api/games</code>
+          <p>Create a new sports game.</p>
+        </div>
+
+        <div class="api-item">
+          <span class="api-method">GET</span>
+          <code>/api/games/{id}</code>
+          <p>Retrieve a specific game.</p>
+        </div>
+
+        <div class="api-item">
+          <span class="api-method">POST</span>
+          <code>/api/games/{id}/join</code>
+          <p>Join an existing game.</p>
+        </div>
+
+        <div class="api-item">
+          <span class="api-method">DELETE</span>
+          <code>/api/games/{gameId}?hostId={hostId}</code>
+          <p>Cancel a hosted game.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DOCUMENTATION -->
+
+  <section class="section">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <h2>Application documentation</h2>
+
+        <p>
+          Explore the GamePoint application screens,
+          interface designs, and development documentation.
+        </p>
+
+      </div>
+
+
+      <div class="documentation-card">
+
+        <div>
+
+          <div class="project-number">
+            GAMEPOINT — DOCUMENTATION
+          </div>
+
+          <h3>Application Screenshots & Documentation</h3>
+
+          <p>
+            View the complete GamePoint documentation,
+            including application screenshots and interface
+            demonstrations.
+          </p>
+
+        </div>
+
+
+        <a
+          class="btn btn-primary"
+          href="https://docs.google.com/document/d/1hWY4cykujLEIEq4gKx8ZRyDWc7g4vQOC3u3OvMgOL5o/edit?usp=sharing"
+          target="_blank"
+          rel="noopener"
+        >
+          Open Documentation →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FUTURE DEVELOPMENT -->
+
+  <section class="section">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <h2>Future development</h2>
+
+        <p>
+          Planned improvements that could expand GamePoint into
+          a more complete sports community platform.
+        </p>
+
+      </div>
+
+
+      <div class="feature-grid">
+
+        <div class="feature">
+          <span>01</span>
+          <h3>Player Profiles</h3>
+          <p>
+            Expand user profiles with profile pictures,
+            sports preferences, and player information.
+          </p>
+        </div>
+
+        <div class="feature">
+          <span>02</span>
+          <h3>Real-time Chat</h3>
+          <p>
+            Allow players and hosts to communicate before
+            and during sporting activities.
+          </p>
+        </div>
+
+        <div class="feature">
+          <span>03</span>
+          <h3>Push Notifications</h3>
+          <p>
+            Notify users about upcoming games, invitations,
+            cancellations, and other activity updates.
+          </p>
+        </div>
+
+        <div class="feature">
+          <span>04</span>
+          <h3>Player Ratings</h3>
+          <p>
+            Introduce a player rating system to encourage
+            positive community participation.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+    <div class="wrap">
+
+      <h2>
+        Want to see how GamePoint was built?
+      </h2>
+
+      <p>
+        Explore the source code and development documentation.
+      </p>
+
+      <div class="project-actions" style="justify-content:center;">
+
+        <a
+          class="btn btn-primary"
+          href="https://github.com/genoviakent12-rgb/GamePoint"
+          target="_blank"
+          rel="noopener"
+        >
+          View GitHub
+        </a>
+
+        <a
+          class="btn btn-ghost"
+          href="../index.html#work"
+        >
+          Back to projects
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="wrap">
+
+    <span>
+      © 2026 Kent Genovia
+    </span>
+
+    <div class="foot-links">
+
+      <a
+        href="https://github.com/genoviakent12-rgb"
+        target="_blank"
+        rel="noopener"
+      >
+        GitHub
+      </a>
+
+      <a
+        href="http://www.linkedin.com/in/kent-genovia-6a03a72a3"
+        target="_blank"
+        rel="noopener"
+      >
+        LinkedIn
+      </a>
+
+      <a href="mailto:genovia.kent12@gmail.com">
+        Email
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="../script.js"></script>
+
+</body>
+</html>
