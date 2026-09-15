@@ -1164,10 +1164,6 @@ html[data-theme="light"] .profile-card{
   margin:0 0 6px;
 }
 
-.documentation-card span:not(.documentation-type){
-  color:var(--fg-dim);
-}
-
 /* Budget cards */
 .budget-grid{
   display:grid;
