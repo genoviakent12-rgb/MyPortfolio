@@ -939,7 +939,7 @@ html[data-theme="light"] .profile-card{
 }
 .feature{
   position:relative;
-  border:1px solid var(--line);
+  border:0px solid var(--line);
   border-radius:var(--radius-lg);
   padding:30px;
   background:var(--bg-2);
@@ -974,7 +974,7 @@ html[data-theme="light"] .profile-card{
   width:100%;
   max-width:540px;
   padding:26px;
-  border:1px solid var(--line);
+  border:0px solid var(--line);
   background:var(--bg-2);
   border-radius:var(--radius);
   text-align:center;
@@ -1042,7 +1042,7 @@ html[data-theme="light"] .profile-card{
   align-items:center;
   flex-wrap:wrap;
   padding:20px 24px;
-  border:1px solid var(--line);
+  border:0px solid var(--line);
   border-radius:var(--radius);
   background:var(--bg-2);
   transition:border-color .25s var(--ease),transform .25s var(--ease);
@@ -1095,7 +1095,7 @@ html[data-theme="light"] .profile-card{
   flex-direction:column;
   padding:26px;
   min-height:194px;
-  border:1px solid var(--line);
+  border:0px solid var(--line);
   border-radius:var(--radius);
   background:var(--bg-2);
   transition:transform .25s var(--ease),border-color .25s var(--ease);
@@ -1128,6 +1128,22 @@ html[data-theme="light"] .profile-card{
   font-weight:600;
   color:var(--accent);
 }
+/* .architecture-box:hover{border-color:var(--accent);transform:translateY(-3px);}
+.architecture-box strong,
+.architecture-box h3{
+  display:block;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:18px;
+  font-weight:600;
+  margin:0 0 6px;
+}
+.architecture-box span:not(.architecture-number),
+.architecture-box p{
+  color:var(--fg-dim);
+  font-size:13.5px;
+  margin:0;
+  line-height:1.6;
+} */
 
 /* Single wide documentation panel */
 .documentation-card.is-wide{
@@ -1138,8 +1154,19 @@ html[data-theme="light"] .profile-card{
   min-height:0;
   padding:34px;
 }
-.documentation-card.is-wide:hover{transform:none;}
-.documentation-card.is-wide h3{font-size:20px;}
+.documentation-card.is-wide:hover{border-color:var(--accent);transform:translateY(-3px);}
+.documentation-card strong,
+.documentation-card.is-wide h3{
+  display:block;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:18px;
+  font-weight:600;
+  margin:0 0 6px;
+}
+
+.documentation-card span:not(.documentation-type){
+  color:var(--fg-dim);
+}
 
 /* Budget cards */
 .budget-grid{
