@@ -1,376 +1,623 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kent Genovia — Software Engineering Student</title>
-<meta name="description" content="Kent Edcel J. Genovia — Software Engineering Student building cross-platform apps and backend services.">
+
+<title>Kent Genovia — Software Engineer</title>
+
+<meta name="description" content="Kent Genovia — software engineer building cross-platform mobile applications with React Native, Expo, Spring Boot and PostgreSQL.">
+<meta name="theme-color" content="#151413">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="styles.css">
+
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('kg-theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    } catch (e) {}
+
+    if ('IntersectionObserver' in window &&
+        !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('reveal-ready');
+    }
+  })();
+</script>
+
 </head>
+
 <body>
 
-<header>
-  <nav class="wrap">
-    <a class="brand" href="#top">&lt;/Kent Genovia&gt;<span class="dot">.</span></a>
+<!-- ===================== NAV ===================== -->
+
+<header class="site-header">
+
+  <nav class="nav-pill" aria-label="Main">
+
+    <a class="brand" href="index.html">Kent Genovia<span class="dot">.</span></a>
+
     <div class="nav-links">
       <a href="#work">Work</a>
       <a href="#about">About</a>
+      <a href="#stack">Stack</a>
       <a href="#contact">Contact</a>
     </div>
+
+    <span class="nav-divider" aria-hidden="true"></span>
+
     <div class="nav-right">
-      <a class="icon-btn" href="https://github.com/genoviakent12-rgb" target="_blank" rel="noopener" aria-label="GitHub">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.94c.57.1.79-.25.79-.55v-2.14c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.77.11 3.06.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+
+      <a class="icon-btn" href="https://github.com/genoviakent12-rgb" target="_blank" rel="noopener" aria-label="GitHub profile">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.94c.57.1.79-.25.79-.55v-2.14c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.77.11 3.06.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/>
+        </svg>
       </a>
-      <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-        <svg id="theme-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+
+      <button class="icon-btn" id="theme-toggle" aria-label="Switch to light theme" title="Switch to light theme">
+        <svg id="theme-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>
+        </svg>
       </button>
+
+      <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+
     </div>
+
   </nav>
+
+  <div class="nav-menu" id="nav-menu">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#stack">Stack</a>
+    <a href="#contact">Contact</a>
+  </div>
+
 </header>
 
-<main id="top">
 
-  <section class="hero wrap">
+<main>
 
-  <div>
-
-    <div class="kicker">
-      Available for internships &amp; junior roles
-    </div>
-
-    <h1>
-      Hi, I'm Kent —<br>
-      I build mobile applications<br>
-      that works and is needed.
-    </h1>
-
-    <p class="lede">
-      Third-year Software Engineering student focused on cross-platform apps and backend services.
-      I like taking a rough idea &mdash; a carpool app, a pickup game finder &mdash; and shipping it as something people actually open twice.
-    </p>
-
-    <div class="kicker">
-      United Arab Emirates - Dubai
-    </div>
-
-    <div class="stack-row">
-      <span class="pill">React Native / Expo</span>
-      <span class="pill">TypeScript / JavaScript</span>
-      <span class="pill">Java / Spring Boot</span>
-      <span class="pill">PostgreSQL</span>
-      <span class="pill">Firebase</span>
-      <span class="pill">Google APIs</span>
-      <span class="pill">Tailwind CSS</span>
-    </div>
-
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#work">
-        See my projects
-      </a>
-
-      <a class="btn btn-ghost" href="mailto:genovia.kent12@gmail.com">
-        Get in touch
-      </a>
-    </div>
-
-  </div>
+<div class="wrap">
+<div class="rail">
 
 
-  <div class="profile-photo">
+  <!-- ===================== STICKY PROFILE CARD ===================== -->
 
-    <img
-      src="images/portfolio_pfp.jpg"
-      alt="Kent Genovia"
-    >
+  <aside class="rail-left">
 
-  </div>
+    <div class="profile-card">
 
-</section>
+      <svg class="arc" viewBox="0 0 320 190" aria-hidden="true">
+        <path d="M18 168 C 20 60, 120 8, 214 4"/>
+      </svg>
 
-  <section class="section" id="about">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>What I focus on</h2>
-        <p>Most of my project work sits across three layers &mdash; the interface people touch, the API underneath it, and the cloud services that hold it together.</p>
+      <div class="profile-photo">
+        <img src="images/portfolio_pfp.jpg" alt="Kent Genovia" width="320" height="340">
       </div>
-      <div class="cap-grid">
-        <div class="cap">
-          <div class="num">01</div>
-          <h3>Cross-platform interfaces</h3>
-          <p>Building mobile apps in React Native and Expo with NativeWind, focused on interfaces that feel native and stay easy to extend.</p>
-        </div>
-        <div class="cap">
-          <div class="num">02</div>
-          <h3>Backend &amp; APIs</h3>
-          <p>Designing REST services in Java and Spring Boot, with Spring Data JPA and PostgreSQL handling the data underneath.</p>
-        </div>
-        <div class="cap">
-          <div class="num">03</div>
-          <h3>Cloud &amp; integrations</h3>
-          <p>Wiring apps up to Firebase, Google Maps and Places, and the Gemini API to add search, location, and recommendation features.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="section" id="work">
-  <div class="wrap">
+      <div class="profile-name">Kent Genovia</div>
 
-    <div class="section-head">
-      <h2>Selected projects</h2>
-      <p>
-        A few of the full-stack apps I've built through coursework
-        and self-directed projects.
+      <p class="profile-bio">
+        Hi, I'm Kent!
+        I build mobile applications
+        that works and is needed.
       </p>
+
+      <div class="profile-socials">
+
+        <a href="http://www.linkedin.com/in/kent-genovia-6a03a72a3" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05a4.16 4.16 0 0 1 3.75-2.06c4 0 4.75 2.64 4.75 6.07V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4V9Z"/>
+          </svg>
+        </a>
+
+        <a href="https://github.com/genoviakent12-rgb" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.94c.57.1.79-.25.79-.55v-2.14c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.77.11 3.06.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/>
+          </svg>
+        </a>
+
+
+        <a href="mailto:genovia.kent12@gmail.com" aria-label="Email">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/>
+            <path d="m3 7 9 6 9-6"/>
+          </svg>
+        </a>
+
+        <a href="https://www.tiktok.com/@bigturd0?lang=en" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-3.77V2h-3.39v13.67a2.89 2.89 0 1 1-2.89-2.89c.3 0 .59.05.86.13v-3.45a6.36 6.36 0 1 0 5.42 6.28V8.86a8.25 8.25 0 0 0 4.83 1.55V7.02a4.85 4.85 0 0 1-1.06-.33Z"/>
+          </svg>
+        </a>
+
+        <a href="https://www.instagram.com/kntdclll/" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
+          </svg>
+        </a>
+
+      </div>
+
+
     </div>
 
-    <div class="proj-grid">
+  </aside>
 
-      <!-- TARAUNI -->
-      <div class="proj-card">
 
-        <a href="projects/tarauni.html" class="project-card-link">
+  <!-- ===================== RIGHT RAIL ===================== -->
 
-          <div class="proj-thumb">
-            <img src="images/TaraUniBanner.png" alt="TaraUni project banner">
-            <div class="proj-tag">Full-stack · Mobile</div>
-          </div>
+  <div class="rail-right">
 
-          <div class="proj-body">
 
-            <h3>
-              TaraUni — Carpool App
-            </h3>
+    <!-- HERO -->
 
-            <p>
-              Cross-platform carpooling app for university students,
-              with an AI chatbot for search and Google Maps-based
-              route planning.
-            </p>
+    <section class="rail-section hero" id="home" data-nav-section>
 
-            <div class="proj-stack">
-              <span>React Native</span>
-              <span>Spring Boot</span>
-              <span>PostgreSQL</span>
-              <span>Gemini API</span>
+      <h1 class="display hero-head" data-reveal>
+        <span>Software</span>
+        <span class="ghost">Engineer</span>
+      </h1>
+
+      <p class="lede" data-reveal data-reveal-delay="80">
+        Third-year Software Engineering student living in the UAE focused on cross-platform apps and 
+        backend services. 
+      </p>
+
+      <div class="stat-row" data-reveal data-reveal-delay="160">
+
+        <div>
+          <div class="stat-num">03</div>
+          <div class="stat-label">Full applications shipped</div>
+        </div>
+
+        <div>
+          <div class="stat-num">02</div>
+          <div class="stat-label">REST APIs designed and built</div>
+        </div>
+
+        <div>
+          <div class="stat-num">13</div>
+          <div class="stat-label">Technologies across the stack</div>
+        </div>
+
+      </div>
+
+      <div class="bento" data-reveal data-reveal-delay="220">
+
+        <a class="bento-card is-accent" href="#work">
+          <svg class="deco" viewBox="0 0 300 220" aria-hidden="true" preserveAspectRatio="none">
+            <path d="M-20 60c60-40 120 40 180 0s100-30 160 10"/>
+            <path d="M-20 120c60-40 120 40 180 0s100-30 160 10"/>
+            <path d="M-20 180c60-40 120 40 180 0s100-30 160 10"/>
+          </svg>
+          <span class="bento-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="2.5" width="12" height="19" rx="3"/>
+              <path d="M10.5 18.5h3"/>
+            </svg>
+          </span>
+          <div>
+            <h3>Mobile apps, end to end</h3>
+            <div class="bento-foot">
+              <p>React Native and Expo, built for both platforms at once.</p>
+              <span class="bento-arrow" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17 17 7M9 7h8v8"/>
+                </svg>
+              </span>
             </div>
-
-            <div class="project-view">
-              View project →
-            </div>
-
           </div>
+        </a>
 
+        <a class="bento-card is-lime" href="#stack">
+          <svg class="deco" viewBox="0 0 300 220" aria-hidden="true" preserveAspectRatio="none">
+            <path d="M-10 170 60 60l50 90 60-120 50 100 70-70"/>
+            <path d="M-10 210 60 100l50 90 60-120 50 100 70-70"/>
+          </svg>
+          <span class="bento-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2.5" y="3.5" width="19" height="7" rx="2"/>
+              <rect x="2.5" y="13.5" width="19" height="7" rx="2"/>
+              <path d="M6.5 7h.01M6.5 17h.01"/>
+            </svg>
+          </span>
+          <div>
+            <h3>Backends that hold up</h3>
+            <div class="bento-foot">
+              <p>Spring Boot REST APIs over PostgreSQL and Firebase.</p>
+              <span class="bento-arrow" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17 17 7M9 7h8v8"/>
+                </svg>
+              </span>
+            </div>
+          </div>
         </a>
 
       </div>
 
+    </section>
 
-      <!-- GAMEPOINT -->
-      <div class="proj-card">
 
-        <a href="projects/gamepoint.html" class="project-card-link">
+    <!-- WORK -->
 
+    <section class="rail-section" id="work" data-nav-section>
+
+      <h2 class="display" data-reveal>
+        <span>Recent</span>
+        <span class="ghost">Projects</span>
+      </h2>
+
+      <div class="proj-list" style="margin-top:44px;">
+
+        <a class="proj-row" href="projects/kineo.html" data-reveal>
           <div class="proj-thumb">
-            <img src="images/GamePointBanner.png" alt="GamePoint project banner">
-            <div class="proj-tag">Full-stack · Mobile</div>
+            <img src="images/KineoBanner.png" alt="Kineo app">
           </div>
-
-          <div class="proj-body">
-
-            <h3>
-              GamePoint — Sport App
-            </h3>
-
-            <p>
-              Mobile sports community platform for creating and joining
-              local games, discovering nearby venues, and connecting
-              players through a full-stack React Native and Spring Boot
-              application.
-            </p>
-
-            <div class="proj-stack">
+          <div class="proj-meta">
+            <h3>Kineo</h3>
+            <p>AI-powered travel planning</p>
+            <div class="proj-tags">
               <span>React Native</span>
-              <span>Spring Boot</span>
-              <span>PostgreSQL</span>
-              <span>Google Places API</span>
-            </div>
-
-            <div class="project-view">
-              View project →
-            </div>
-
-          </div>
-
-        </a>
-
-      </div>
-
-
-      <!-- KINEO -->
-      <div class="proj-card">
-
-        <a href="projects/kineo.html" class="project-card-link">
-
-          <div class="proj-thumb">
-            <img src="images/KineoBanner.png" alt="Kineo project banner">
-            <div class="proj-tag">Mobile · AI</div>
-          </div>
-
-          <div class="proj-body">
-
-            <h3>
-              Kineo — AI Travel Planner
-            </h3>
-
-            <p>
-              AI-powered travel planning application for discovering
-              destinations, generating personalized trips, organizing
-              itineraries, and planning travel budgets.
-            </p>
-
-            <div class="proj-stack">
-              <span>React Native</span>
-              <span>Expo</span>
               <span>Firebase</span>
               <span>Gemini API</span>
-              <span>Google APIs</span>
             </div>
-
-            <div class="project-view">
-              View project →
-            </div>
-
           </div>
+          <span class="proj-go" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17 17 7M9 7h8v8"/>
+            </svg>
+          </span>
+        </a>
 
+        <a class="proj-row" href="projects/tarauni.html" data-reveal data-reveal-delay="70">
+          <div class="proj-thumb">
+            <img src="images/TaraUniBanner.png" alt="TaraUni app">
+          </div>
+          <div class="proj-meta">
+            <h3>TaraUni</h3>
+            <p>Student carpooling and route planning</p>
+            <div class="proj-tags">
+              <span>Expo</span>
+              <span>Spring Boot</span>
+              <span>Google Maps</span>
+            </div>
+          </div>
+          <span class="proj-go" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17 17 7M9 7h8v8"/>
+            </svg>
+          </span>
+        </a>
+
+        <a class="proj-row" href="projects/gamepoint.html" data-reveal data-reveal-delay="140">
+          <div class="proj-thumb">
+            <img src="images/GamePointBanner.png" alt="GamePoint app">
+          </div>
+          <div class="proj-meta">
+            <h3>GamePoint</h3>
+            <p>Local sports community platform</p>
+            <div class="proj-tags">
+              <span>React Native</span>
+              <span>PostgreSQL</span>
+              <span>Google Places</span>
+            </div>
+          </div>
+          <span class="proj-go" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17 17 7M9 7h8v8"/>
+            </svg>
+          </span>
         </a>
 
       </div>
 
+    </section>
 
-      <!-- COMMUNITY FOOD BANK API -->
-      <div class="proj-card">
 
-        <div class="proj-thumb placeholder" style="background:#241a2a;">
+    <!-- ABOUT -->
 
-          <div class="proj-tag">Backend</div>
+    <section class="rail-section" id="about" data-nav-section>
 
-          <svg viewBox="0 0 100 60">
+      <h2 class="display" data-reveal>
+        <span>About</span>
+        <span class="ghost">Me</span>
+      </h2>
 
-            <rect
-              x="20"
-              y="15"
-              width="60"
-              height="30"
-              rx="3"
-              stroke="#f2b705"
-              stroke-width="2"
-              fill="none"
-            />
+      <div style="margin-top:36px;max-width:62ch;display:flex;flex-direction:column;gap:18px;" data-reveal>
+        <p style="color:var(--fg-dim);line-height:1.8;">
+          I'm a 3rd year software engineer focused on mobile development. Most of my
+          work starts on paper, drawing designs, brainstorming in Canva 
+          and implementing them in React Native.
+        </p>
+        <p style="color:var(--fg-dim);line-height:1.8;">
+          When not in front of the screen, I play occasional badminton with friends and 
+          draw whatever I find in pinterest or tiktok (follow me).
+        </p>
+      </div>
 
-            <line
-              x1="30"
-              y1="25"
-              x2="70"
-              y2="25"
-              stroke="#f2b705"
-              stroke-width="2"
-            />
+      <div class="pill-row" data-reveal data-reveal-delay="80">
+        <span class="pill">Cross-platform mobile</span>
+        <span class="pill">REST API design</span>
+        <span class="pill">Relational data modelling</span>
+        <span class="pill">Third-party API integrations</span>
+        <span class="pill">UI implementation</span>
+      </div>
 
-            <line
-              x1="30"
-              y1="35"
-              x2="55"
-              y2="35"
-              stroke="#4fd1c5"
-              stroke-width="2"
-            />
+    </section>
 
-          </svg>
 
+    <!-- TECH STACK -->
+
+    <section class="rail-section" id="stack" data-nav-section>
+
+      <h2 class="display" data-reveal>
+        <span>Tech</span>
+        <span class="ghost">Stack</span>
+      </h2>
+
+      <div class="stack-grid" style="margin-top:44px;" data-reveal>
+
+        <div class="stack-item">
+          <span class="stack-ico" aria-hidden="true">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 17-5-5 5-5M15 7l5 5-5 5"/>
+            </svg>
+          </span>
+          <div>
+            <h3>Languages</h3>
+            <p>JavaScript, Java, Python, VB.NET</p>
+          </div>
         </div>
 
-        <div class="proj-body">
+        <div class="stack-item">
+          <span class="stack-ico" aria-hidden="true">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="2.5" width="12" height="19" rx="3"/>
+              <path d="M10.5 18.5h3"/>
+            </svg>
+          </span>
+          <div>
+            <h3>Mobile</h3>
+            <p>React Native, Expo, Expo Router, NativeWind</p>
+          </div>
+        </div>
 
-          <h3>
-            Community Food Bank API
-          </h3>
+        <div class="stack-item">
+          <span class="stack-ico" aria-hidden="true">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2.5" y="3.5" width="19" height="7" rx="2"/>
+              <rect x="2.5" y="13.5" width="19" height="7" rx="2"/>
+              <path d="M6.5 7h.01M6.5 17h.01"/>
+            </svg>
+          </span>
+          <div>
+            <h3>Backend</h3>
+            <p>Spring Boot, Spring Data JPA, Hibernate, Maven</p>
+          </div>
+        </div>
 
+        <div class="stack-item">
+          <span class="stack-ico" aria-hidden="true">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5.5" rx="8" ry="3"/>
+              <path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>
+            </svg>
+          </span>
+          <div>
+            <h3>Databases</h3>
+            <p>PostgreSQL, Cloud Firestore</p>
+          </div>
+        </div>
+
+        <div class="stack-item">
+          <span class="stack-ico" aria-hidden="true">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6.5 18a4 4 0 0 1-.4-8A6 6 0 0 1 18 10.4a3.8 3.8 0 0 1-.5 7.6Z"/>
+            </svg>
+          </span>
+          <div>
+            <h3>Cloud &amp; auth</h3>
+            <p>Firebase Authentication, Firebase services</p>
+          </div>
+        </div>
+
+        <div class="stack-item">
+          <span class="stack-ico" aria-hidden="true">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3.5 13.7 9l5.8 1.5-5.8 1.5L12 17l-1.7-5L4.5 10.5 10.3 9Z"/>
+              <path d="M18.5 3v3M20 4.5h-3"/>
+            </svg>
+          </span>
+          <div>
+            <h3>APIs &amp; AI</h3>
+            <p>Google Maps, Google Places, Gemini API</p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE + EDUCATION -->
+
+    <section class="rail-section" id="experience" data-nav-section>
+
+      <h2 class="display" data-reveal>
+        <span>Experience</span>
+        <span class="ghost">&amp; Study</span>
+      </h2>
+      <div class="entry-list" style="margin-top:40px;">
+
+        <article class="entry" data-reveal>
+          <div class="entry-top">
+            <div>
+              <h3>BSc (Hons) Software Engineering</h3>
+              <div class="role">University of Stirling - RAK</div>
+            </div>
+          </div>
           <p>
-            REST service for managing food bank operations —
-            inventory tracking, donation intake, and distribution.
+            Third year. Coursework spans Software Engineering, Data Structures & Algorithms, 
+            Database Systems, Machine Learning, UX Design, Mobile App Development, 
+            Web Services, and Computer Security.
           </p>
+          <span class="when">Oct 2026 — Present</span>
+        </article>
 
-          <div class="proj-stack">
-            <span>Java</span>
-            <span>Spring Boot</span>
-            <span>H2 Database</span>
-            <span>Lombok</span>
+        <article class="entry" data-reveal data-reveal-delay="70">
+          <div class="entry-top">
+            <div>
+              <h3>Advanced Diploma in Computing: Software Development</h3>
+              <div class="role">Scottish Qualifications Authority</div>
+            </div>
+          </div>
+          <p>
+            Covered software development, 
+            OOP and analysis, data structures, 
+            database design and SQL, and rapid 
+            application development.
+          </p>
+          <span class="when">Oct 2024 — 2026</span>
+        </article>
+
+        <article class="entry" data-reveal data-reveal-delay="140">
+          <div class="entry-top">
+            <div>
+              <h3>Coursera / Codecademy</h3>
+              <div class="role">Certifications</div>
+            </div>
+          </div>
+          <p>
+            1. Python for Data Science, AI & Development (IBM);
+          </p>
+          <p>
+            2. Create REST APIs with Spring and Java;
+          </p>
+          <p>
+            3. React Native; 
+          </p>
+          <p>
+            4. Prompt Engineering.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="rail-section" id="contact" data-nav-section>
+
+      <h2 class="display" data-reveal>
+        <span>Let's work</span>
+        <span class="ghost">Together</span>
+      </h2>
+
+      <p class="lede" style="margin-top:22px;" data-reveal>
+        Looking for someone to build your mobile app, or want to talk about
+        a role? Send me a message.
+      </p>
+
+      <form class="contact-form" id="contact-form" novalidate data-reveal>
+
+        <div class="field-row">
+
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input type="text" id="f-name" name="name" placeholder="Your name" autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" placeholder="you@email.com" autocomplete="email">
           </div>
 
         </div>
 
+        <div class="field">
+          <label for="f-topic">Topic</label>
+          <select id="f-topic" name="topic">
+            <option value="">Select…</option>
+            <option>Job opportunity</option>
+            <option>Freelance project</option>
+            <option>Collaboration</option>
+            <option>Something else</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="f-message">Message</label>
+          <textarea id="f-message" name="message" placeholder="Tell me a bit about it"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send message</button>
+
+        <p class="form-note" id="form-note"></p>
+
+      </form>
+
+      <div class="contact-direct" data-reveal>
+
+        <a href="mailto:genovia.kent12@gmail.com">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/>
+            <path d="m3 7 9 6 9-6"/>
+          </svg>
+          genovia.kent12@gmail.com
+        </a>
+
+        <a href="http://www.linkedin.com/in/kent-genovia-6a03a72a3" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05a4.16 4.16 0 0 1 3.75-2.06c4 0 4.75 2.64 4.75 6.07V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4V9Z"/>
+          </svg>
+          LinkedIn
+        </a>
+
+        <a href="https://github.com/genoviakent12-rgb" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.94c.57.1.79-.25.79-.55v-2.14c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.77.11 3.06.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/>
+          </svg>
+          GitHub
+        </a>
+
       </div>
 
-    </div>
+    </section>
 
-  </div>
-</section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Background</h2>
-        <p>Currently studying Software Engineering, with hands-on work alongside coursework.</p>
-      </div>
-      <div class="timeline">
-        <div class="t-item">
-          <div class="t-when">Oct 2026 — Present</div>
-          <h3>BSc (Hons) Software Engineering, University of Stirling</h3>
-          <p>Third year. Coursework spans Software Engineering, Data Structures &amp; Algorithms, Database Systems, Machine Learning, UX Design, Mobile App Development, Web Services, and Computer Security.</p>
-        </div>
-        <div class="t-item">
-          <div class="t-when">Oct 2024 — 2026</div>
-          <h3>Advanced Diploma in Computing: Software Development</h3>
-          <p>Scottish Qualifications Authority. Covered software development, OOP and analysis, data structures, database design and SQL, and rapid application development.</p>
-        </div>
-        <div class="t-item">
-          <div class="t-when">2022 — 2023</div>
-          <h3>Teacher Shadowing &amp; Campus Journalism, The Philippine School, Dubai</h3>
-          <p>Assisted with classroom activities and administrative work, while leading sports and news writing coverage and founding the school's Research Society Club.</p>
-        </div>
-        <div class="t-item">
-          <div class="t-when">Coursera / Codecademy</div>
-          <h3>Certifications</h3>
-          <p>Python for Data Science, AI &amp; Development (IBM); Create REST APIs with Spring and Java; React Native; Prompt Engineering.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div><!-- /.rail-right -->
 
-  <section class="cta" id="contact">
-    <div class="wrap">
-      <h2>Interested in working together?</h2>
-      <p>I'm looking for internships and junior engineering roles — happy to talk about any of the projects above.</p>
-      <a class="btn btn-primary" href="mailto:genovia.kent1205@gmail.com">Send me a message</a>
-    </div>
-  </section>
+</div><!-- /.rail -->
+</div><!-- /.wrap -->
 
 </main>
 
-<footer>
+
+<footer class="site-footer">
   <div class="wrap">
     <span>© 2026 Kent Genovia</span>
     <div class="foot-links">
       <a href="https://github.com/genoviakent12-rgb" target="_blank" rel="noopener">GitHub</a>
       <a href="http://www.linkedin.com/in/kent-genovia-6a03a72a3" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:genovia.kent1205@gmail.com">Email</a>
+      <a href="mailto:genovia.kent12@gmail.com">Email</a>
     </div>
   </div>
 </footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>

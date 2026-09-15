@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,65 +7,80 @@
 <title>TaraUni — Kent Genovia</title>
 
 <meta name="description" content="TaraUni — A full-stack student transportation platform built with React Native, Expo, Spring Boot, PostgreSQL, Google Maps, Google Places, and Gemini API.">
+<meta name="theme-color" content="#151413">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="../styles.css">
+
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('kg-theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    } catch (e) {}
+
+    // Arm the scroll reveals before first paint. Without this class the
+    // content is simply visible, so no-JS visitors still see everything.
+    if ('IntersectionObserver' in window &&
+        !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('reveal-ready');
+    }
+  })();
+</script>
 
 </head>
 
 <body>
 
-<header>
-  <nav class="wrap">
+<header class="site-header">
 
-    <a class="brand" href="../index.html">
-      Kent Genovia<span class="dot">.</span>
-    </a>
+  <nav class="nav-pill" aria-label="Main">
+
+    <a class="brand" href="../index.html">Kent Genovia<span class="dot">.</span></a>
 
     <div class="nav-links">
       <a href="../index.html#work">Work</a>
       <a href="../index.html#about">About</a>
+      <a href="../index.html#stack">Stack</a>
       <a href="../index.html#contact">Contact</a>
     </div>
 
+    <span class="nav-divider" aria-hidden="true"></span>
+
     <div class="nav-right">
 
-      <a
-        class="icon-btn"
-        href="https://github.com/genoviakent12-rgb"
-        target="_blank"
-        rel="noopener"
-        aria-label="GitHub"
-      >
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.94c.57.1.79-.25.79-.55v-2.14c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/>
+      <a class="icon-btn" href="https://github.com/genoviakent12-rgb" target="_blank" rel="noopener" aria-label="GitHub profile">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.94c.57.1.79-.25.79-.55v-2.14c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.77.11 3.06.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .3.21.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/>
         </svg>
       </a>
 
-      <button
-        class="icon-btn"
-        id="theme-toggle"
-        aria-label="Toggle theme"
-        title="Toggle theme"
-      >
-        <svg
-          id="theme-icon"
-          width="17"
-          height="17"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-        >
+      <button class="icon-btn" id="theme-toggle" aria-label="Switch to light theme" title="Switch to light theme">
+        <svg id="theme-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>
+        </svg>
+      </button>
+
+      <button class="icon-btn nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
         </svg>
       </button>
 
     </div>
 
   </nav>
+
+  <div class="nav-menu" id="nav-menu">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#stack">Stack</a>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+
 </header>
 
 
@@ -74,16 +89,16 @@
   <!-- PROJECT HERO -->
 
   <section class="project-hero">
-
     <div class="wrap">
 
       <a class="back-link" href="../index.html#work">
-        ← Back to projects
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M19 12H5m6-6-6 6 6 6"/>
+        </svg>
+        Back to projects
       </a>
 
-      <div class="project-label">
-        Full-stack · Mobile Application · AI
-      </div>
+      <div class="project-label">Full-stack · Mobile Application · AI</div>
 
       <h1>TaraUni</h1>
 
@@ -96,52 +111,37 @@
 
       <div class="project-actions">
 
-        <a
-          class="btn btn-primary"
-          href="https://canva.link/h9xnmxtq2svx5wl"
-          target="_blank"
-          rel="noopener"
-        >
-          View Presentation
+        <a class="btn btn-primary" href="https://lnkd.in/p/dzyznuTW" target="_blank" rel="noopener">
+          Watch the demo
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 17 17 7M9 7h8v8"/>
+          </svg>
         </a>
 
-        <a
-          class="btn btn-ghost"
-          href="https://github.com/genoviakent12-rgb"
-          target="_blank"
-          rel="noopener"
-        >
+        <a class="btn btn-ghost" href="https://canva.link/h9xnmxtq2svx5wl" target="_blank" rel="noopener">
+          View presentation
+        </a>
+
+        <a class="btn btn-ghost" href="https://github.com/genoviakent12-rgb" target="_blank" rel="noopener">
           View on GitHub
         </a>
 
-        <a
-          class="btn btn-primary"
-          href="https://lnkd.in/p/dzyznuTW"
-          target="_blank"
-          rel="noopener"
-        >
-          View demo on LinkedIn ↗
-        </a>
       </div>
 
     </div>
-
   </section>
 
 
-  <!-- PROJECT OVERVIEW -->
+  <!-- OVERVIEW -->
 
   <section class="section">
-
     <div class="wrap">
 
       <div class="project-info-grid">
 
-        <div>
+        <div data-reveal>
 
-          <div class="project-number">
-            01 — Overview
-          </div>
+          <div class="project-number">01 — Overview</div>
 
           <h2>Making university transportation easier.</h2>
 
@@ -169,33 +169,36 @@
 
         </div>
 
+        <div class="fact-list" data-reveal data-reveal-delay="80">
+          <div><span>Type</span><strong>Mobile application</strong></div>
+          <div><span>Frontend</span><strong>React Native · Expo</strong></div>
+          <div><span>Styling</span><strong>NativeWind</strong></div>
+          <div><span>Backend</span><strong>Java · Spring Boot</strong></div>
+          <div><span>Database</span><strong>PostgreSQL</strong></div>
+          <div><span>Services</span><strong>Google Maps · Places · Gemini</strong></div>
+        </div>
+
       </div>
 
     </div>
-
   </section>
 
 
   <!-- TECHNOLOGY STACK -->
 
   <section class="section">
-
     <div class="wrap">
 
-      <div class="section-head">
-
+      <div class="section-head" data-reveal>
         <h2>Technology stack</h2>
-
         <p>
           Technologies used to build the mobile application,
           backend services, database, location functionality,
           authentication, and AI-powered features.
         </p>
-
       </div>
 
-
-      <div class="tech-grid">
+      <div class="tech-grid" data-reveal>
 
         <div class="tech-item">
           <strong>React Native</strong>
@@ -265,513 +268,326 @@
       </div>
 
     </div>
-
   </section>
 
 
   <!-- KEY FEATURES -->
 
   <section class="section">
-
     <div class="wrap">
 
-      <div class="section-head">
-
+      <div class="section-head" data-reveal>
         <h2>Key features</h2>
-
         <p>
           TaraUni combines carpooling, route planning,
           location services, and AI assistance into a
           single student-focused transportation platform.
         </p>
-
       </div>
-
 
       <div class="feature-grid">
 
-        <div class="feature">
-
-          <span>01</span>
-
+        <div class="feature" data-reveal>
           <h3>Carpool Management</h3>
-
           <p>
             Students can create carpools with an origin,
             destination, travel date, time, passenger capacity,
             and price per passenger.
           </p>
-
         </div>
 
-
-        <div class="feature">
-
-          <span>02</span>
-
-          <h3>Discover & Join Carpools</h3>
-
+        <div class="feature" data-reveal data-reveal-delay="60">
+          <h3>Discover &amp; Join Carpools</h3>
           <p>
             Students can browse available carpools and join
             shared rides created by other students based on
             their transportation needs.
           </p>
-
         </div>
 
-
-        <div class="feature">
-
-          <span>03</span>
-
+        <div class="feature" data-reveal data-reveal-delay="120">
           <h3>Route Planning</h3>
-
           <p>
             Google Maps integration provides route calculation,
             travel distance, estimated travel time, and
             map-based route visualization.
           </p>
-
         </div>
 
-
-        <div class="feature">
-
-          <span>04</span>
-
+        <div class="feature" data-reveal data-reveal-delay="60">
           <h3>Location Services</h3>
-
           <p>
             Users can detect their current location, search
             for destinations, select pickup locations, and
             interact with locations through maps.
           </p>
-
         </div>
 
-
-        <div class="feature">
-
-          <span>05</span>
-
+        <div class="feature" data-reveal data-reveal-delay="120">
           <h3>AI Transportation Assistant</h3>
-
           <p>
             An AI-powered assistant allows users to interact
             with transportation information using natural
             language and receive transportation-related
             assistance.
           </p>
-
         </div>
 
-
-        <div class="feature">
-
-          <span>06</span>
-
+        <div class="feature" data-reveal data-reveal-delay="180">
           <h3>Student-focused Transportation</h3>
-
           <p>
             TaraUni brings carpooling and transportation
             planning together to help students make more
             convenient decisions when travelling to and
             from university.
           </p>
-
         </div>
 
       </div>
 
     </div>
-
   </section>
-
-
-  
 
 
   <!-- SYSTEM ARCHITECTURE -->
 
   <section class="section">
-
     <div class="wrap">
 
-      <div class="section-head">
-
+      <div class="section-head" data-reveal>
         <h2>System architecture</h2>
-
         <p>
           TaraUni follows a client-server architecture where
           the React Native application communicates with the
           Spring Boot backend through REST APIs.
         </p>
-
       </div>
 
-
-      <div class="architecture">
+      <div class="architecture" data-reveal>
 
         <div class="architecture-box">
-
+          <span class="architecture-number">01</span>
           <strong>React Native + Expo</strong>
-
-          <span>
-            Mobile Application
-          </span>
-
+          <span>Mobile Application</span>
         </div>
 
-
-        <div class="architecture-arrow">
+        <div class="architecture-arrow" aria-hidden="true">
           ↓
           <span>REST API</span>
         </div>
 
-
         <div class="architecture-box">
-
+          <span class="architecture-number">02</span>
           <strong>Spring Boot</strong>
-
-          <span>
-            Backend REST API
-          </span>
-
+          <span>Backend REST API</span>
         </div>
 
-
-        <div class="architecture-arrow">
+        <div class="architecture-arrow" aria-hidden="true">
           ↓
           <span>JPA / Hibernate</span>
         </div>
 
-
         <div class="architecture-box">
-
+          <span class="architecture-number">03</span>
           <strong>PostgreSQL</strong>
-
-          <span>
-            Relational Database
-          </span>
-
+          <span>Relational Database</span>
         </div>
 
       </div>
 
     </div>
-
   </section>
 
 
-  <!-- DEVELOPMENT -->
+  <!-- WHAT I BUILT -->
 
   <section class="section">
-
     <div class="wrap">
 
-      <div class="section-head">
-
+      <div class="section-head" data-reveal>
         <h2>What I built</h2>
-
         <p>
           The project allowed me to work across the frontend,
           backend, database, API integrations, and application
           architecture.
         </p>
-
       </div>
-
 
       <div class="feature-grid">
 
-        <div class="feature">
-
-          <span>01</span>
-
+        <div class="feature" data-reveal>
           <h3>Mobile Frontend</h3>
-
           <p>
             Developed the cross-platform mobile interface
             using React Native and Expo, including navigation,
             reusable components, forms, maps, and interactive
             screens.
           </p>
-
         </div>
 
-
-        <div class="feature">
-
-          <span>02</span>
-
+        <div class="feature" data-reveal data-reveal-delay="60">
           <h3>Backend Development</h3>
-
           <p>
             Built REST API functionality using Java and
             Spring Boot to handle application data and
             communication between the mobile client and
             database.
           </p>
-
         </div>
 
-
-        <div class="feature">
-
-          <span>03</span>
-
+        <div class="feature" data-reveal data-reveal-delay="120">
           <h3>Database Integration</h3>
-
           <p>
             Connected the backend to PostgreSQL for storing
             and managing application data through
             Spring Data JPA.
           </p>
-
         </div>
 
-
-        <div class="feature">
-
-          <span>04</span>
-
+        <div class="feature" data-reveal data-reveal-delay="180">
           <h3>External API Integration</h3>
-
           <p>
             Integrated Google Maps, Google Places, Firebase,
             and Gemini services to extend the application's
             location, authentication, and AI capabilities.
           </p>
-
         </div>
 
       </div>
 
     </div>
-
   </section>
 
 
   <!-- PRESENTATION -->
 
   <section class="section">
-
     <div class="wrap">
 
-      <div class="section-head">
-
+      <div class="section-head" data-reveal>
         <h2>Project presentation</h2>
-
         <p>
           Explore the complete TaraUni presentation for
           additional application screens, design decisions,
           features, and project information.
         </p>
-
       </div>
 
-
-      <div class="documentation-card">
+      <div class="documentation-card is-wide" data-reveal>
 
         <div>
-
-          <div class="project-number">
-            TARAUNI — PROJECT PRESENTATION
-          </div>
-
-          <h3>
-            Application Design & Documentation
-          </h3>
-
+          <div class="documentation-type">PRESENTATION</div>
+          <h3>Application design &amp; documentation</h3>
           <p>
             View the full presentation showcasing TaraUni's
             mobile interface, features, and project development.
           </p>
-
         </div>
 
-
-        <a
-          class="btn btn-primary"
-          href="https://canva.link/h9xnmxtq2svx5wl"
-          target="_blank"
-          rel="noopener"
-        >
-          Open Presentation →
+        <a class="btn btn-primary" href="https://canva.link/h9xnmxtq2svx5wl" target="_blank" rel="noopener">
+          Open presentation
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 17 17 7M9 7h8v8"/>
+          </svg>
         </a>
 
       </div>
 
     </div>
-
   </section>
 
 
   <!-- FUTURE DEVELOPMENT -->
 
   <section class="section">
-
     <div class="wrap">
 
-      <div class="section-head">
-
+      <div class="section-head" data-reveal>
         <h2>Future development</h2>
-
         <p>
           Planned improvements that could expand TaraUni into
           a more complete student transportation platform.
         </p>
-
       </div>
-
 
       <div class="feature-grid">
 
-        <div class="feature">
-
-          <span>01</span>
-
+        <div class="feature" data-reveal>
           <h3>Live Transportation Updates</h3>
-
           <p>
             Provide users with real-time information about
             transportation conditions and unexpected delays.
           </p>
-
         </div>
 
-
-        <div class="feature">
-
-          <span>02</span>
-
+        <div class="feature" data-reveal data-reveal-delay="60">
           <h3>Push Notifications</h3>
-
           <p>
             Notify students about upcoming carpools,
             transportation changes, and journey updates.
           </p>
-
         </div>
 
-
-        <div class="feature">
-
-          <span>03</span>
-
+        <div class="feature" data-reveal data-reveal-delay="120">
           <h3>Student Profiles</h3>
-
           <p>
             Introduce richer student profiles and
             transportation preferences.
           </p>
-
         </div>
 
-
-        <div class="feature">
-
-          <span>04</span>
-
+        <div class="feature" data-reveal data-reveal-delay="180">
           <h3>Advanced Route Planning</h3>
-
           <p>
             Combine multiple transportation methods,
             walking distances, schedules, and live delays
             into a more comprehensive campus route planner.
           </p>
-
         </div>
 
       </div>
 
     </div>
-
   </section>
 
 
   <!-- CTA -->
 
   <section class="cta">
-
     <div class="wrap">
 
-      <h2>
-        Want to explore TaraUni?
-      </h2>
+      <h2>Want to explore TaraUni?</h2>
 
-      <p>
-        View the project presentation or explore the source code.
-      </p>
+      <p>View the project presentation or explore the source code.</p>
 
-      <div
-        class="project-actions"
-        style="justify-content:center;"
-      >
+      <div class="project-actions">
 
-        <a
-          class="btn btn-primary"
-          href="https://canva.link/h9xnmxtq2svx5wl"
-          target="_blank"
-          rel="noopener"
-        >
-          View Presentation
+        <a class="btn btn-primary" href="https://canva.link/h9xnmxtq2svx5wl" target="_blank" rel="noopener">
+          View presentation
         </a>
 
-        <a
-          class="btn btn-ghost"
-          href="https://github.com/genoviakent12-rgb"
-          target="_blank"
-          rel="noopener"
-        >
+        <a class="btn btn-ghost" href="https://github.com/genoviakent12-rgb" target="_blank" rel="noopener">
           View GitHub
         </a>
 
       </div>
 
     </div>
-
   </section>
 
 </main>
 
 
-<footer>
-
+<footer class="site-footer">
   <div class="wrap">
-
-    <span>
-      © 2026 Kent Genovia
-    </span>
-
+    <span>© 2026 Kent Genovia</span>
     <div class="foot-links">
-
-      <a
-        href="https://github.com/genoviakent12-rgb"
-        target="_blank"
-        rel="noopener"
-      >
-        GitHub
-      </a>
-
-      <a
-        href="http://www.linkedin.com/in/kent-genovia-6a03a72a3"
-        target="_blank"
-        rel="noopener"
-      >
-        LinkedIn
-      </a>
-
-      <a href="mailto:genovia.kent12@gmail.com">
-        Email
-      </a>
-
+      <a href="https://github.com/genoviakent12-rgb" target="_blank" rel="noopener">GitHub</a>
+      <a href="http://www.linkedin.com/in/kent-genovia-6a03a72a3" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:genovia.kent12@gmail.com">Email</a>
     </div>
-
   </div>
-
 </footer>
-
 
 <script src="../script.js"></script>
 
